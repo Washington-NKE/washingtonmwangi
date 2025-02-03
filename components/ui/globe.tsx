@@ -118,6 +118,21 @@ export function Globe({ globeConfig, data }: WorldProps) {
     let points = [];
     for (let i = 0; i < arcs.length; i++) {
       const arc = arcs[i];
+
+      if (
+        typeof arc.startLat !== 'number' || 
+        typeof arc.startLng !== 'number' ||
+        typeof arc.endLat !== 'number' || 
+        typeof arc.endLng !== 'number' ||
+        isNaN(arc.startLat) || 
+        isNaN(arc.startLng) ||
+        isNaN(arc.endLat) || 
+        isNaN(arc.endLng)
+      ) {
+        console.error('Invalid coordinate data:', arc);
+        continue; // Skip invalid data points
+      }
+
       const rgb = hexToRgb(arc.color) as { r: number; g: number; b: number };
       points.push({
         size: defaultProps.pointSize,

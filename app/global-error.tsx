@@ -9,6 +9,14 @@ export default function GlobalError({ error }: { error: Error & { digest?: strin
     Sentry.captureException(error);
   }, [error]);
 
+  useEffect(() => {
+    window.addEventListener('error', (event) => {
+      if (event.message.includes('THREE.BufferGeometry.computeBoundingSphere')) {
+        event.preventDefault();
+      }
+    });
+  }, []);
+
   return (
     <html>
       <body>
