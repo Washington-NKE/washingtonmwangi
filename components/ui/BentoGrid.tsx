@@ -52,14 +52,14 @@ export const BentoGridItem = ({
 
   const [copied, setCopied] = useState(false);
 
-  const defaultOptions = {
-    loop: copied,
-    autoplay: copied,
-    animationData: animationData,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
+  // const defaultOptions = {
+  //   loop: copied,
+  //   autoplay: copied,
+  //   animationData: animationData,
+  //   rendererSettings: {
+  //     preserveAspectRatio: "xMidYMid slice",
+  //   },
+  // };
 
   const handleCopy = () => {
     const text = "washington.biz.pro@gmail.com";

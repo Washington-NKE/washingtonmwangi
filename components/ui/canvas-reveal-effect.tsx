@@ -203,16 +203,20 @@ const ShaderMaterial = ({
     }
     lastFrameTime = timestamp;
 
-    const material: any = ref.current.material;
+    const material = (ref.current.material as THREE.ShaderMaterial) || null;
     const timeLocation = material.uniforms.u_time;
     timeLocation.value = timestamp;
   });
 
   const getUniforms = () => {
-    const preparedUniforms: any = {};
+    const preparedUniforms: Record<string, { value: unknown; type: string }> = {};
 
     for (const uniformName in uniforms) {
-      const uniform: any = uniforms[uniformName];
+      const uniform = uniforms[uniformName] as {
+        type: string;
+        value: number | number[];
+      };
+      
 
       switch (uniform.type) {
         case "uniform1f":
@@ -279,10 +283,10 @@ const ShaderMaterial = ({
     });
 
     return materialObject;
-  }, [size.width, size.height, source]);
+  }, [source, getUniforms]);
 
   return (
-    <mesh ref={ref as any}>
+    <mesh ref={ref}>
       <planeGeometry args={[2, 2]} />
       <primitive object={material} attach="material" />
     </mesh>

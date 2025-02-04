@@ -92,13 +92,13 @@ export function Globe({ globeConfig, data }: WorldProps) {
   };
 
   useEffect(() => {
-    if (globeRef.current) {
+    if (globeRef.current ) {
       _buildData();
       _buildMaterial();
     }
-  }, [globeRef.current]);
+  }, [_buildData, _buildMaterial]);
 
-  const _buildMaterial = () => {
+  const _buildMaterial =  () => {
     if (!globeRef.current) return;
 
     const globeMaterial = globeRef.current.globeMaterial() as unknown as {
@@ -115,7 +115,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
 
   const _buildData = () => {
     const arcs = data;
-    let points = [];
+    const points = [];
     for (let i = 0; i < arcs.length; i++) {
       const arc = arcs[i];
 
@@ -172,15 +172,21 @@ export function Globe({ globeConfig, data }: WorldProps) {
         .showAtmosphere(defaultProps.showAtmosphere)
         .atmosphereColor(defaultProps.atmosphereColor)
         .atmosphereAltitude(defaultProps.atmosphereAltitude)
-        .hexPolygonColor((e) => {
+        .hexPolygonColor(() => {
           return defaultProps.polygonColor;
         });
       startAnimation();
     }
-  }, [globeData]);
+  }, [globeData,  defaultProps.atmosphereAltitude, defaultProps.atmosphereColor, defaultProps.polygonColor, defaultProps.showAtmosphere, startAnimation]);
 
   const startAnimation = () => {
     if (!globeRef.current || !globeData) return;
+
+    type ArcData = {
+      color: string;
+      order: number;
+      arcAlt: number;
+    };
 
     globeRef.current
       .arcsData(data)
@@ -188,7 +194,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
       .arcStartLng((d) => (d as { startLng: number }).startLng * 1)
       .arcEndLat((d) => (d as { endLat: number }).endLat * 1)
       .arcEndLng((d) => (d as { endLng: number }).endLng * 1)
-      .arcColor((e: any) => (e as { color: string }).color)
+      .arcColor((e: ArcData) => e.color)
       .arcAltitude((e) => {
         return (e as { arcAlt: number }).arcAlt * 1;
       })
