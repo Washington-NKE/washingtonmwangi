@@ -25,7 +25,7 @@ export const InfiniteMovingCards = ({
 
   useEffect(() => {
     addAnimation();
-  }, []);
+  });
   const [start, setStart] = useState(false);
   function addAnimation() {
     if (containerRef.current && scrollerRef.current) {
@@ -106,7 +106,7 @@ export const InfiniteMovingCards = ({
               <div className="relative z-20 mt-6 flex flex-row items-center">
                 <span className="flex flex-col gap-1">
                     <div className="me-3 rounded-full">
-                        <img src="/profile.svg" alt="profile" />
+                        <img src="/a.jpg" alt="profile" className="rounded-full"  />
                     </div>
                 <div className="flex flex-col gap-1">
                 <span className=" text-sm leading-[1.6] text-white font-bold">
