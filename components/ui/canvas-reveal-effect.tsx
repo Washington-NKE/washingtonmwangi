@@ -1,7 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import React, { useMemo, useRef } from "react";
+import React, { useMemo, useRef, useCallback } from "react";
 import * as THREE from "three";
 
 export const CanvasRevealEffect = ({
@@ -222,26 +222,30 @@ const ShaderMaterial = ({
         case "uniform1f":
           preparedUniforms[uniformName] = { value: uniform.value, type: "1f" };
           break;
-        case "uniform3f":
-          preparedUniforms[uniformName] = {
-            value: new THREE.Vector3().fromArray(uniform.value),
-            type: "3f",
-          };
+          case "uniform3f":
+            preparedUniforms[uniformName] = {
+              value: new THREE.Vector3().fromArray(
+                Array.isArray(uniform.value) ? uniform.value : [uniform.value, uniform.value, uniform.value] // Ensuring it's an array
+              ),
+              type: "3f",
+            };
           break;
         case "uniform1fv":
           preparedUniforms[uniformName] = { value: uniform.value, type: "1fv" };
           break;
         case "uniform3fv":
           preparedUniforms[uniformName] = {
-            value: uniform.value.map((v: number[]) =>
-              new THREE.Vector3().fromArray(v)
+            value: (Array.isArray(uniform.value) ? uniform.value : [uniform.value]).map(
+              (v) => new THREE.Vector3().fromArray(Array.isArray(v) ? v : [v, v, v])
             ),
             type: "3fv",
           };
           break;
         case "uniform2f":
           preparedUniforms[uniformName] = {
-            value: new THREE.Vector2().fromArray(uniform.value),
+            value: new THREE.Vector3().fromArray(
+              Array.isArray(uniform.value) ? uniform.value : [uniform.value, uniform.value, uniform.value] // Ensuring it's an array
+            ),
             type: "2f",
           };
           break;
@@ -254,6 +258,7 @@ const ShaderMaterial = ({
     preparedUniforms["u_time"] = { value: 0, type: "1f" };
     preparedUniforms["u_resolution"] = {
       value: new THREE.Vector2(size.width * 2, size.height * 2),
+      type: "2f",
     }; // Initialize u_resolution
     return preparedUniforms;
   }, [uniforms, size]);
