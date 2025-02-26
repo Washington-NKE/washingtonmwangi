@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Washington",
+  title: "Washington Mwangi",
   description: "New modern developer portfolio",
   manifest: "/site.webmanifest",
   icons: {

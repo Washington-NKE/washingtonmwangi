@@ -74,7 +74,7 @@ export const navItems = [
       id: 1,
       title: "E-health doctor-patient platform",
       des: "A seamless doctor-patient platform for managing appointments, prescriptions, and health progress efficiently.",
-      img: "/HealthTrak.svg",
+      img: "/pro1.svg",
       iconLists: ["/html.svg", "/mysql.svg", "/css.svg", "/js.svg", "/php.svg"],
       link: "https://healthtrak.onrender.com",
     },
@@ -82,9 +82,9 @@ export const navItems = [
       id: 2,
       title: "Bookvault Library Management System",
       des: "An efficient library management system for organizing books, tracking loans, and streamlining user access.",
-      img: "/p2.svg",
+      img: "/pro2.svg",
       iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/postgre.svg", "/redis.svg"],
-      link: "https://github.com/Washington-NKE/Bookvault",
+      link: "https://bookvault-sigma.vercel.app/",
     },
     {
       id: 3,
@@ -94,14 +94,14 @@ export const navItems = [
       iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/mongo.svg", "/mpesa.svg"],
       link: "https://e-commerce-s0ok.onrender.com",
     },
-    {
-      id: 4,
-      title: "TodoApp",
-      des: "A simple and efficient TodoApp to organize tasks, boost productivity, and stay on top of your schedule.",
-      img: "/todo.svg",
-      iconLists: ["/re.svg", "/mongo.svg", "/ts.svg", "/exp1.svg", "/node.svg"],
-      link: "https://github.com/Washington-NKE/KaziMate",
-    },
+    // {
+    //   id: 4,
+    //   title: "TodoApp",
+    //   des: "A simple and efficient TodoApp to organize tasks, boost productivity, and stay on top of your schedule.",
+    //   img: "/todo.svg",
+    //   iconLists: ["/re.svg", "/mongo.svg", "/ts.svg", "/exp1.svg", "/node.svg"],
+    //   link: "https://github.com/Washington-NKE/KaziMate",
+    // },
   ];
   
   export const testimonials = [
@@ -109,31 +109,31 @@ export const navItems = [
       quote:
       "Collaborating with Washington was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Washington's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Washington is the ideal partner.",
       name: "Achim Biegon",
-      title: "Computer Science student",
+      title: "Developer",
     },
     {
       quote:
         "Collaborating with Washington was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Washington's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Washington is the ideal partner.",
       name: "Achim Biegon",
-      title: "Computer Science student",
+      title: "Developer",
     },
     {
       quote:
       "Collaborating with Washington was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Washington's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Washington is the ideal partner.",
       name: "Achim Biegon",
-      title: "Computer Science student",
+      title: "Developer",
     },
     {
       quote:
       "Collaborating with Washington was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Washington's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Washington is the ideal partner.",
       name: "Achim Biegon",
-      title: "Computer Science student",
+      title: "Developer",
     },
     {
       quote:
       "Collaborating with Washington was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Washington's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Washington is the ideal partner.",
       name: "Achim Biegon",
-      title: "Computer Science student",
+      title: "Developer",
     },
   ];
   
