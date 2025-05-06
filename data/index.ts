@@ -72,6 +72,14 @@ export const navItems = [
   export const projects = [
     {
       id: 1,
+      title: "AI Mock Interview Platform",
+      des: "An innovative platform that simulates real-world interview scenarios, providing users with AI-generated questions and feedback.",
+      img: "/mockwise.png",
+      iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/fire.svg", "/gem.svg"],
+      link: "https://mock-wise-five.vercel.app",
+    },
+    {
+      id: 2,
       title: "E-health doctor-patient platform",
       des: "A seamless doctor-patient platform for managing appointments, prescriptions, and health progress efficiently.",
       img: "/pro1.svg",
@@ -79,7 +87,7 @@ export const navItems = [
       link: "https://healthtrak.onrender.com",
     },
     {
-      id: 2,
+      id: 3,
       title: "Bookvault Library Management System",
       des: "An efficient library management system for organizing books, tracking loans, and streamlining user access.",
       img: "/pro2.svg",
@@ -87,7 +95,7 @@ export const navItems = [
       link: "https://bookvault-sigma.vercel.app/",
     },
     {
-      id: 3,
+      id: 4,
       title: "Shopsy- An online shop",
       des: "An intuitive and secure online store offering a seamless shopping experience with a sleek design and smooth checkout process.",
       img: "/e.svg",
@@ -95,7 +103,7 @@ export const navItems = [
       link: "https://e-commerce-s0ok.onrender.com",
     },
     // {
-    //   id: 4,
+    //   id: 5,
     //   title: "TodoApp",
     //   des: "A simple and efficient TodoApp to organize tasks, boost productivity, and stay on top of your schedule.",
     //   img: "/todo.svg",
