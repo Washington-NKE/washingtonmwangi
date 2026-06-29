@@ -1,6 +1,7 @@
 'use client'
 
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 import { useState } from "react";
 import { IoCopyOutline } from "react-icons/io5";
 //import Lottie from "lottie-react";
@@ -81,19 +82,23 @@ export const BentoGridItem = ({
       <div className={`${id === 6 && 'flex justify-center'} h-full`}>
         <div className="w-full h-full absolute">
           {img && (
-            <img
+            <Image
             src={img}
             alt={img}
+            fill
+            sizes="(min-width: 1024px) 40vw, 100vw"
             className={cn(imgClassName, "object-cover object-center ")}
             />
           )}
         </div>
         <div className={`absolute right-0 -bottom-5 ${id === 5 && "w-full opacity-80"}`}>
           {spareImg && (
-            <img
+            <Image
             src={spareImg}
             alt={spareImg}
-            className="object-cover object-center w-full h-full" />
+            fill
+            sizes="(min-width: 768px) 50vw, 100vw"
+            className="object-cover object-center" />
           )}
         </div>
         {id === 6 && (

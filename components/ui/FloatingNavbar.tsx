@@ -8,6 +8,7 @@ import {
 } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import type { ReactElement } from "react";
 
 export const FloatingNav = ({
   navItems,
@@ -16,7 +17,7 @@ export const FloatingNav = ({
   navItems: {
     name: string;
     link: string;
-    icon?: JSX.Element;
+    icon?: ReactElement;
   }[];
   className?: string;
 }) => {

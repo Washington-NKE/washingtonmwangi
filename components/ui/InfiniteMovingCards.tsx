@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 export const InfiniteMovingCards = ({
@@ -23,11 +24,9 @@ export const InfiniteMovingCards = ({
   const containerRef = React.useRef<HTMLDivElement>(null);
   const scrollerRef = React.useRef<HTMLUListElement>(null);
 
-  useEffect(() => {
-    addAnimation();
-  });
   const [start, setStart] = useState(false);
-  function addAnimation() {
+
+  useEffect(() => {
     if (containerRef.current && scrollerRef.current) {
       const scrollerContent = Array.from(scrollerRef.current.children);
 
@@ -38,37 +37,18 @@ export const InfiniteMovingCards = ({
         }
       });
 
-      getDirection();
-      getSpeed();
+      containerRef.current.style.setProperty(
+        "--animation-direction",
+        direction === "left" ? "forwards" : "reverse"
+      );
+      containerRef.current.style.setProperty(
+        "--animation-duration",
+        speed === "fast" ? "20s" : speed === "normal" ? "40s" : "80s"
+      );
       setStart(true);
     }
-  }
-  const getDirection = () => {
-    if (containerRef.current) {
-      if (direction === "left") {
-        containerRef.current.style.setProperty(
-          "--animation-direction",
-          "forwards"
-        );
-      } else {
-        containerRef.current.style.setProperty(
-          "--animation-direction",
-          "reverse"
-        );
-      }
-    }
-  };
-  const getSpeed = () => {
-    if (containerRef.current) {
-      if (speed === "fast") {
-        containerRef.current.style.setProperty("--animation-duration", "20s");
-      } else if (speed === "normal") {
-        containerRef.current.style.setProperty("--animation-duration", "40s");
-      } else {
-        containerRef.current.style.setProperty("--animation-duration", "80s");
-      }
-    }
-  };
+  }, [direction, speed]);
+
   return (
     <div
       ref={containerRef}
@@ -106,7 +86,7 @@ export const InfiniteMovingCards = ({
               <div className="relative z-20 mt-6 flex flex-row items-center">
                 <span className="flex flex-col gap-1">
                     <div className="me-3 rounded-full">
-                        <img src="/a.jpg" alt="profile" className="rounded-full"  />
+                        <Image src="/a.jpg" alt="profile" width={48} height={48} className="rounded-full" />
                     </div>
                 <div className="flex flex-col gap-1">
                 <span className=" text-sm leading-[1.6] text-white font-bold">
